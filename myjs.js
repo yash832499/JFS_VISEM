@@ -29,7 +29,7 @@ async function showDetails() {
     satyanadella: "images/satyanadella.jpg",
     AdaLovelace: "images/AdaLovelace.jpg",
     madhu: "images/madhu.jpg",
-    Prabhanjali: "images/Prabhanjali.jpg",
+    Yashaswini: "images/23951A66Q7.jpg",
   };
 
   // Mapping details
@@ -50,7 +50,7 @@ async function showDetails() {
     Sundar_Pichai: "Sundar Pichai is the CEO of Google.",
     satyanadella: "Satya Nadella is the CEO of Microsoft.",
     AdaLovelace: "Ada Lovelace was the first computer programmer.",
-    Prabhanjali: "Name: Prabhanjali ,Roll_NO:24955A6613, Branch: AIML",
+    Yashaswini: "Name: Yashaswini ,Roll_no:23951A66Q7, Branch: AIML"
   };
 
   if (name === "") {
@@ -132,4 +132,5 @@ function showCustomConfirm(message) {
     ok.addEventListener("click", onOk);
     cancel.addEventListener("click", onCancel);
   });
+
 }
