@@ -1,0 +1,157 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+}
+
+#searchBox {
+  width: 300px;
+  height: 35px;
+  font-size: 16px;
+  padding-left: 10px;
+  margin-bottom: 12px;
+}
+
+.container {
+  display: flex;
+  margin-top: 30px;
+  gap: 40px;
+}
+
+.photo-box,
+.info-box {
+  width: 45%;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  min-height: 260px;
+}
+
+#photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 25%;
+  object-fit: cover;
+  border: 2px solid #444;
+  display: none;
+}
+.photo-james {
+  border: 6px solid gold !important;
+  padding: 5px;
+  border-radius: 0 !important; /* Makes it RECTANGLE */
+  width: 240px !important;
+  height: 260px !important;
+}
+
+.photo-james-blue {
+  width: 240px !important;
+  height: 260px !important;
+  border: 6px solid #1e90ff !important;
+  padding: 5px;
+  border-radius: 0 !important;
+  box-shadow: 0 0 20px #1e90ff;
+  animation: jamesBlueGlow 1s infinite alternate ease-in-out;
+}
+
+@keyframes jamesBlueGlow {
+  0% {
+    box-shadow: 0 0 10px #1e90ff;
+  }
+  100% {
+    box-shadow: 0 0 40px #1e90ff, 0 0 80px #00bfff;
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
+}
+
+/* Buttons */
+.btn {
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: 2px solid rgba(30, 144, 255, 0.5);
+}
+
+.btn-ok {
+  background: linear-gradient(180deg, #4caf50, #3a9d3a);
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.btn-ok:hover {
+  transform: translateY(-1px);
+}
+
+.btn-cancel {
+  background: #f1f1f1;
+  color: #333;
+  margin-left: 8px;
+}
+
+.btn-cancel:hover {
+  background: #e2e2e2;
+}
+
+/* Inline OK button near select */
+.btn-ok-inline {
+  background: #1e90ff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+}
+
+.btn-ok-inline:hover {
+  background: #1877cc;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal {
+  background: #fff;
+  padding: 20px 22px;
+  border-radius: 10px;
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.modal p {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  color: #222;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* small responsive tweak */
+@media (max-width: 420px) {
+  .modal {
+    width: 90%;
+  }
+}

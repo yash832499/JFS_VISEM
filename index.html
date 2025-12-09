@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Display Photo and Information</title>
+    <link rel="stylesheet" href="css/mystyle.css" />
+  </head>
+
+  <body>
+    <h2>Select a Name to Display Photo & Info</h2>
+    <!-- Dropdown -->
+    <select id="nameSelect" style="height: 40px; width: 320px">
+      <option value="">-- Select Name --</option>
+
+      <!-- Earlier personalities -->
+      <option value="guido">Guido van Rossum (Python)</option>
+      <option value="dennis">Dennis M. Ritchie (C)</option>
+      <option value="james">James Gosling (Java)</option>
+      <option value="stroustrup">Bjarne Stroustrup (C++)</option>
+      <option value="juergen">Juergen Hoeller (Spring Framework)</option>
+      <option value="krishna">E Krishna Rao Patro (JFS Trainer)</option>
+
+      <!-- New personalities -->
+      <option value="bill_gates">Bill Gates (Microsoft)</option>
+      <option value="steve_jobs">Steve Jobs (Apple)</option>
+      <option value="elon_musk">Elon Musk (Tesla/SpaceX)</option>
+      <option value="zukerberg">Mark Zuckerberg (Facebook)</option>
+      <option value="linus_torvalds">Linus Torvalds (Linux)</option>
+      <option value="tim_berner">Tim Berners-Lee (WWW)</option>
+      <option value="Sundar_Pichai">Sundar Pichai (Google CEO)</option>
+      <option value="satyanadella">Satya Nadella (Microsoft CEO)</option>
+
+      <option value="AdaLovelace">Ada Lovelace (1st Programmer)</option>
+      <option value="madhu">Madhu (JFS Trainer, CDC, IARE Hyderabad)</option>
+      <option value="Prabhanjali">Prabhanjali (AIML)</option>
+    </select>
+
+    <!-- Confirmation button: shows photo/info only after user confirms -->
+    <button id="confirmBtn" class="btn btn-ok-inline" style="margin-left: 12px">
+      OK
+    </button>
+    <span id="promptMessage" style="margin-left: 12px; color: #555"></span>
+
+    <div class="container">
+      <!-- LEFT BOX: PHOTO -->
+      <div class="photo-box">
+        <img id="photo" src="" alt="Person Photo" />
+      </div>
+
+      <!-- RIGHT BOX: INFORMATION -->
+      <div class="info-box" id="infoBox">
+        <span class="title">Person Information</span>
+        <p id="infoText">Please select a person from the dropdown.</p>
+      </div>
+    </div>
+
+    <!-- Custom confirmation modal (hidden by default) -->
+    <div id="confirmModal" class="modal-overlay hidden">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalMessage"
+      >
+        <p id="modalMessage">Confirm?</p>
+        <div class="modal-actions">
+          <button id="modalOk" class="btn btn-ok">OK</button>
+          <button id="modalCancel" class="btn btn-cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/myjs.js"></script>
+  </body>
+</html>
