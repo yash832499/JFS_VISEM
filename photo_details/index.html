@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Photo and Information</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 30px;
+            gap: 40px;
+        }
+
+        .photo-box, .info-box {
+            width: 45%;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            min-height: 260px;
+        }
+
+        #photo {
+            width: 220px;
+            height: 220px;
+            border-radius: 25%;
+            object-fit: cover;
+            border: 2px solid #444;
+            display: none;
+        }
+
+        /* 🔵 Blue glow for EVERYONE */
+        .blue-glow {
+            border: 6px solid #1e90ff !important;
+            padding: 5px;
+            border-radius: 0 !important;
+            animation: glow 1s infinite alternate ease-in-out;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 15px #1e90ff;
+            }
+            to {
+                box-shadow: 0 0 45px #1e90ff, 0 0 80px #00bfff;
+            }
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Select a Name</h2>
+
+<select id="nameSelect" style="height:40px; width:320px;">
+    <option value="guido">Guido van Rossum (Python)</option>
+      <option value="dennis">Dennis M. Ritchie (C)</option>
+      <option value="james">James Gosling (Java)</option>
+      <option value="stroustrup">Bjarne Stroustrup (C++)</option>
+      <option value="juergen">Juergen Hoeller (Spring Framework)</option>
+      <option value="krishna">E Krishna Rao Patro (JFS Trainer)</option>
+      <option value="bill_gates">Bill Gates (Microsoft)</option>
+      <option value="steve_jobs">Steve Jobs (Apple)</option>
+      <option value="elon_musk">Elon Musk (Tesla/SpaceX)</option>
+      <option value="zukerberg">Mark Zuckerberg (Facebook)</option>
+      <option value="linus_torvalds">Linus Torvalds (Linux)</option>
+      <option value="tim_berner">Tim Berners-Lee (WWW)</option>
+      <option value="Sundar_Pichai">Sundar Pichai (Google CEO)</option>
+      <option value="satyanadella">Satya Nadella (Microsoft CEO)</option>
+
+      <option value="AdaLovelace">Ada Lovelace (1st Programmer)</option>
+      <option value="madhu">Madhu (JFS Trainer, CDC, IARE Hyderabad)</option>
+      <option value="Yashaswini">Yashaswini (AIML)</option>
+</select>
+
+<button id="confirmBtn" style="margin-left:12px;">OK</button>
+
+<div class="container">
+
+    <div class="photo-box">
+        <img id="photo">
+    </div>
+
+    <div class="info-box">
+        <span class="title">Person Information</span>
+        <p id="infoText">Please select a person.</p>
+    </div>
+
+</div>
+
+<script>
+
+let selectedName = "";
+
+const photos = {
+    guido: "images/guido.jpg",
+    dennis: "images/dennis.jpg",
+    james: "images/james.jpg",
+    stroustrup: "images/stroustrup.jpg",
+    juergen: "images/juergen.jpg",
+    krishna: "images/krishna.jpg",
+
+    bill_gates: "images/bill_gates.jpg",
+    steve_jobs: "images/steve_jobs.jpg",
+    elon_musk: "images/elon_musk.jpg",
+    zukerberg: "images/zukerberg.jpg",
+    linus_torvalds: "images/linus_torvalds.jpeg",
+    tim_berner: "images/tim_berner.jpg",
+    Sundar_Pichai: "images/Sundar_Pichai.jpg",
+    satyanadella: "images/satyanadella.jpg",
+    AdaLovelace: "images/AdaLovelace.jpg",
+    madhu: "images/madhu.jpg",
+    Yashaswini: "images/23951A66Q7.jpg",
+};
+
+const details = {
+    guido: "Guido van Rossum created Python in 1991.",
+    dennis: "Dennis Ritchie developed C and co-created UNIX.",
+    james: "James Gosling invented Java in 1995.",
+    stroustrup: "Bjarne Stroustrup created C++.",
+    juergen: "Juergen Hoeller is the co-creator of Spring Framework.",
+    krishna: "E Krishna Rao Patro — JFS Trainer.",
+    madhu: "B. Madhusudhan Rao — JFS Trainer.",
+    bill_gates: "Bill Gates co-founded Microsoft.",
+    steve_jobs: "Steve Jobs co-founded Apple.",
+    elon_musk: "Elon Musk leads Tesla & SpaceX.",
+    zukerberg: "Mark Zuckerberg founded Facebook.",
+    linus_torvalds: "Linus Torvalds created Linux.",
+    tim_berner: "Tim Berners-Lee invented the World Wide Web.",
+    Sundar_Pichai: "Sundar Pichai is the CEO of Google.",
+    satyanadella: "Satya Nadella is the CEO of Microsoft.",
+    AdaLovelace: "Ada Lovelace was the first computer programmer.",
+    Yashaswini: "Name: Yashaswini ,Roll_no:23951A66Q7, Branch: AIML"
+};
+
+/* ✅ Show photo immediately */
+document.getElementById("nameSelect").addEventListener("change", function () {
+    selectedName = this.value;
+    showDetails(false);   // no glow
+});
+
+/* ✅ Apply blue glow on OK click */
+document.getElementById("confirmBtn").addEventListener("click", function () {
+    showDetails(true);    // glow
+});
+
+function showDetails(applyGlow) {
+
+    let photo = document.getElementById("photo");
+    let info  = document.getElementById("infoText");
+
+    photo.classList.remove("blue-glow");
+
+    if (!selectedName) {
+        photo.style.display = "none";
+        info.innerHTML = "Please select a person.";
+        return;
+    }
+
+    photo.src = photos[selectedName];
+    photo.style.display = "block";
+    info.innerHTML = details[selectedName];
+
+    if (applyGlow) {
+        photo.classList.add("blue-glow");
+    }
+}
+
+</script>
+
+</body>
+</html>
